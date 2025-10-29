@@ -1,9 +1,13 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import TrustMetrics from "@/components/TrustMetrics";
-import MarketSection from "@/components/MarketSection";
-import FoundersSection from "@/components/FoundersSection";
+import TrendingTokens from "@/components/TrendingTokens";
+import MarketOverview from "@/components/MarketOverview";
+import TrendingCollections from "@/components/TrendingCollections";
+import TopMovers from "@/components/TopMovers";
 import FeaturedAssets from "@/components/FeaturedAssets";
+import RWA101 from "@/components/RWA101";
+import TrustMetrics from "@/components/TrustMetrics";
+import FoundersSection from "@/components/FoundersSection";
 
 const Index = () => {
   return (
@@ -11,10 +15,14 @@ const Index = () => {
       <Header />
       <main className="pt-20">
         <Hero />
-        <TrustMetrics />
-        <MarketSection />
-        <FoundersSection />
+        <TrendingTokens />
+        <MarketOverview />
+        <TrendingCollections />
+        <TopMovers />
         <FeaturedAssets />
+        <RWA101 />
+        <TrustMetrics />
+        <FoundersSection />
       </main>
       
       <footer className="bg-card border-t border-border py-8 mt-20">
