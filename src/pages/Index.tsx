@@ -1,12 +1,32 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import TrustMetrics from "@/components/TrustMetrics";
+import MarketSection from "@/components/MarketSection";
+import FoundersSection from "@/components/FoundersSection";
+import FeaturedAssets from "@/components/FeaturedAssets";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main className="pt-20">
+        <Hero />
+        <TrustMetrics />
+        <MarketSection />
+        <FoundersSection />
+        <FeaturedAssets />
+      </main>
+      
+      <footer className="bg-card border-t border-border py-8 mt-20">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-sm text-muted-foreground">
+            © 2025 ATF RWA Marketplace. Premium tokenized assets platform.
+          </p>
+          <p className="text-xs text-muted-foreground mt-2">
+            🇯🇵 Headquartered in Japan • Built on blockchain technology
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
