@@ -1,13 +1,15 @@
 import { ArrowUpRight, ArrowDownRight, TrendingUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const TopMovers = () => {
+  const { t } = useTranslation();
   const movers = [
-    { name: "Pappy Van Winkle 23yr", symbol: "PAPPY", price: 21000, change: 45.2, isPositive: true },
-    { name: "Château Margaux 1982", symbol: "MARG", price: 18500, change: 38.7, isPositive: true },
-    { name: "Macallan Sherry Oak 30yr", symbol: "MAC30", price: 16800, change: 35.4, isPositive: true },
-    { name: "Dom Pérignon P3", symbol: "DOMP3", price: 3200, change: 28.9, isPositive: true },
-    { name: "Opus X Cigar Collection", symbol: "OPUSX", price: 8900, change: -15.3, isPositive: false },
-    { name: "Hibiki 30 Year Old", symbol: "HIBI30", price: 12400, change: 24.6, isPositive: true },
+    { name: t("products.pappy_23"), symbol: "PAPPY", price: 21000, change: 45.2, isPositive: true },
+    { name: t("products.margaux_1982"), symbol: "MARG", price: 18500, change: 38.7, isPositive: true },
+    { name: t("products.macallan_30"), symbol: "MAC30", price: 16800, change: 35.4, isPositive: true },
+    { name: t("products.dom_p3"), symbol: "DOMP3", price: 3200, change: 28.9, isPositive: true },
+    { name: t("products.opus_x"), symbol: "OPUSX", price: 8900, change: -15.3, isPositive: false },
+    { name: t("products.hibiki_30"), symbol: "HIBI30", price: 12400, change: 24.6, isPositive: true },
   ];
 
   return (
@@ -15,10 +17,10 @@ const TopMovers = () => {
       <div className="container mx-auto px-4">
         <div className="mb-8">
           <h2 className="text-3xl font-bold text-foreground mb-2">
-            Top Movers
+            {t("top_movers.title")}
           </h2>
           <p className="text-muted-foreground">
-            Biggest price changes in the last 24 hours
+            {t("top_movers.subtitle")}
           </p>
         </div>
 
@@ -46,16 +48,15 @@ const TopMovers = () => {
 
               <div className="space-y-3">
                 <div className="flex items-baseline justify-between">
-                  <span className="text-sm text-muted-foreground">Current Price</span>
+                  <span className="text-sm text-muted-foreground">{t("top_movers.current_price")}</span>
                   <span className="text-2xl font-bold text-primary">
                     ${mover.price.toLocaleString()}
                   </span>
                 </div>
                 <div className="flex items-center justify-between p-3 rounded-md bg-background">
-                  <span className="text-sm font-medium text-foreground">24h Change</span>
-                  <div className={`flex items-center gap-1 font-bold text-lg ${
-                    mover.isPositive ? 'text-chart-green' : 'text-chart-red'
-                  }`}>
+                  <span className="text-sm font-medium text-foreground">{t("top_movers.change_24h")}</span>
+                  <div className={`flex items-center gap-1 font-bold text-lg ${mover.isPositive ? 'text-chart-green' : 'text-chart-red'
+                    }`}>
                     {mover.isPositive ? <ArrowUpRight className="h-5 w-5" /> : <ArrowDownRight className="h-5 w-5" />}
                     {mover.isPositive ? '+' : ''}{mover.change}%
                   </div>

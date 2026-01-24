@@ -1,12 +1,14 @@
 import { TrendingUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import whiskyBarrel from "@/assets/asset-whiskey-barrel.jpg";
 import vintageWine from "@/assets/asset-vintage-wine.jpg";
 import cigarCollection from "@/assets/asset-cigar-collection.jpg";
 
 const TrendingCollections = () => {
+  const { t } = useTranslation();
   const collections = [
     {
-      name: "Vintage Scotch Vault",
+      name: t("products.vintage_scotch_vault"),
       image: whiskyBarrel,
       floorPrice: 8500,
       volume: "12.5M",
@@ -14,7 +16,7 @@ const TrendingCollections = () => {
       items: 45,
     },
     {
-      name: "French Wine Heritage",
+      name: t("products.french_wine_heritage"),
       image: vintageWine,
       floorPrice: 6200,
       volume: "9.8M",
@@ -22,7 +24,7 @@ const TrendingCollections = () => {
       items: 62,
     },
     {
-      name: "Cuban Cigar Elite",
+      name: t("products.cuban_cigar_elite"),
       image: cigarCollection,
       floorPrice: 3400,
       volume: "5.2M",
@@ -30,7 +32,7 @@ const TrendingCollections = () => {
       items: 38,
     },
     {
-      name: "Japanese Whisky Reserve",
+      name: t("products.japanese_whisky_reserve"),
       image: whiskyBarrel,
       floorPrice: 11200,
       volume: "15.6M",
@@ -46,10 +48,10 @@ const TrendingCollections = () => {
           <div>
             <h2 className="text-3xl font-bold text-foreground mb-2">
               <TrendingUp className="inline h-8 w-8 text-primary mr-2" />
-              Trending Collections
+              {t("trending_collections.title")}
             </h2>
             <p className="text-muted-foreground">
-              Most active collections in the last 24 hours
+              {t("trending_collections.subtitle")}
             </p>
           </div>
         </div>
@@ -76,13 +78,13 @@ const TrendingCollections = () => {
                 <h3 className="font-bold text-foreground">{collection.name}</h3>
                 <div className="grid grid-cols-2 gap-2 text-sm">
                   <div>
-                    <p className="text-xs text-muted-foreground">Floor</p>
+                    <p className="text-xs text-muted-foreground">{t("trending_collections.floor")}</p>
                     <p className="font-bold text-primary">
                       ${collection.floorPrice.toLocaleString()}
                     </p>
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground">Volume</p>
+                    <p className="text-xs text-muted-foreground">{t("trending_collections.volume")}</p>
                     <p className="font-semibold text-foreground">
                       ${collection.volume}
                     </p>
@@ -90,7 +92,7 @@ const TrendingCollections = () => {
                 </div>
                 <div className="flex items-center justify-between pt-2 border-t border-border">
                   <span className="text-xs text-muted-foreground">
-                    {collection.items} items
+                    {collection.items} {t("trending_collections.items")}
                   </span>
                   <TrendingUp className="h-4 w-4 text-chart-green" />
                 </div>

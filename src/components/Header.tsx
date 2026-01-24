@@ -1,7 +1,10 @@
 import { Coins } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header = () => {
+  const { t } = useTranslation();
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 py-4">
@@ -15,30 +18,36 @@ const Header = () => {
             </div>
             <div className="hidden md:block">
               <h1 className="text-lg font-bold text-foreground tracking-tight">
-                Alcohol & Tobacco RWA Marketplace
+                {t("header.title")}
               </h1>
-              <p className="text-xs text-muted-foreground">Premium Tokenized Assets</p>
+              <p className="text-xs text-muted-foreground">{t("header.subtitle")}</p>
             </div>
           </div>
 
           {/* Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
             <a href="#market" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Market
+              {t("header.market")}
             </a>
             <a href="#assets" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              Assets
+              {t("header.assets")}
+            </a>
+            <a href="/whitepaper" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+              {t("header.whitepaper")}
             </a>
             <a href="#about" className="text-sm font-medium text-foreground hover:text-primary transition-colors">
-              About
+              {t("header.about")}
             </a>
           </nav>
 
-          {/* CTA Button */}
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-            <Coins className="mr-2 h-4 w-4" />
-            Connect Wallet
-          </Button>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            {/* CTA Button */}
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
+              <Coins className="mr-2 h-4 w-4" />
+              {t("header.connect_wallet")}
+            </Button>
+          </div>
         </div>
       </div>
     </header>

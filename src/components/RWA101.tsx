@@ -1,30 +1,32 @@
 import { BookOpen, ShoppingCart, Shield, TrendingUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const RWA101 = () => {
+  const { t } = useTranslation();
   const guides = [
     {
       icon: BookOpen,
-      title: "What are RWA Tokens?",
-      description: "Learn the fundamentals of Real World Asset tokenization and how physical luxury goods are represented on the blockchain.",
+      title: t("rwa_101.guide1_title"),
+      description: t("rwa_101.guide1_desc"),
       color: "text-primary",
     },
     {
       icon: ShoppingCart,
-      title: "How to Buy Your First RWA",
-      description: "Step-by-step guide to purchasing tokenized assets. Connect your wallet, browse assets, and complete your first transaction.",
+      title: t("rwa_101.guide2_title"),
+      description: t("rwa_101.guide2_desc"),
       color: "text-chart-green",
     },
     {
       icon: Shield,
-      title: "Security & Storage",
-      description: "Understanding how your tokenized assets are secured, audited, and stored in climate-controlled facilities.",
+      title: t("rwa_101.guide3_title"),
+      description: t("rwa_101.guide3_desc"),
       color: "text-chart-blue",
     },
     {
       icon: TrendingUp,
-      title: "Investment Strategies",
-      description: "Explore different approaches to building a diversified portfolio of premium alcohol and tobacco RWAs.",
+      title: t("rwa_101.guide4_title"),
+      description: t("rwa_101.guide4_desc"),
       color: "text-primary",
     },
   ];
@@ -34,10 +36,10 @@ const RWA101 = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-foreground mb-4">
-            RWA <span className="text-primary">101</span>
+            {t("rwa_101.title_prefix")} <span className="text-primary">{t("rwa_101.title_highlight")}</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about tokenized real-world assets
+            {t("rwa_101.subtitle")}
           </p>
         </div>
 
@@ -64,7 +66,7 @@ const RWA101 = () => {
                 </CardHeader>
                 <CardContent>
                   <button className="text-primary font-semibold text-sm hover:underline flex items-center gap-2 group/btn">
-                    Read More
+                    {t("rwa_101.read_more")}
                     <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
                   </button>
                 </CardContent>
@@ -76,10 +78,10 @@ const RWA101 = () => {
         {/* Quick Stats */}
         <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
           {[
-            { label: "Active Students", value: "12,450+" },
-            { label: "Courses Completed", value: "8,920" },
-            { label: "Avg. Rating", value: "4.8/5" },
-            { label: "Success Rate", value: "94%" },
+            { label: t("rwa_101.stat_students"), value: "12,450+" },
+            { label: t("rwa_101.stat_courses"), value: "8,920" },
+            { label: t("rwa_101.stat_rating"), value: "4.8/5" },
+            { label: t("rwa_101.stat_success"), value: "94%" },
           ].map((stat, index) => (
             <div key={index} className="text-center p-4 bg-card border border-border rounded-lg">
               <p className="text-2xl font-bold text-primary mb-1">{stat.value}</p>

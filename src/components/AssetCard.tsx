@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 import { TrendingUp, TrendingDown } from "lucide-react";
 
 interface AssetCardProps {
@@ -11,6 +12,7 @@ interface AssetCardProps {
 }
 
 const AssetCard = ({ name, image, price, change, volume, chartData }: AssetCardProps) => {
+  const { t } = useTranslation();
   const isPositive = change > 0;
   const maxValue = Math.max(...chartData);
   const minValue = Math.min(...chartData);
@@ -20,8 +22,8 @@ const AssetCard = ({ name, image, price, change, volume, chartData }: AssetCardP
     <div className="bg-card border border-border rounded-lg overflow-hidden hover:border-primary/50 transition-all hover:shadow-glow-bronze group">
       {/* Asset Image */}
       <div className="relative aspect-square overflow-hidden bg-gradient-card">
-        <img 
-          src={image} 
+        <img
+          src={image}
           alt={name}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
@@ -39,7 +41,7 @@ const AssetCard = ({ name, image, price, change, volume, chartData }: AssetCardP
           <h3 className="text-lg font-bold text-foreground mb-1">{name}</h3>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-bold text-primary">${price.toLocaleString()}</span>
-            <span className="text-xs text-muted-foreground">per token</span>
+            <span className="text-xs text-muted-foreground">{t("asset_card.per_token")}</span>
           </div>
         </div>
 
@@ -62,18 +64,18 @@ const AssetCard = ({ name, image, price, change, volume, chartData }: AssetCardP
         {/* Stats */}
         <div className="flex justify-between text-sm">
           <div>
-            <p className="text-muted-foreground text-xs">24h Volume</p>
+            <p className="text-muted-foreground text-xs">{t("asset_card.volume_24h")}</p>
             <p className="font-semibold text-foreground">{volume}</p>
           </div>
           <div className="text-right">
-            <p className="text-muted-foreground text-xs">Supply</p>
-            <p className="font-semibold text-foreground">Limited</p>
+            <p className="text-muted-foreground text-xs">{t("asset_card.supply")}</p>
+            <p className="font-semibold text-foreground">{t("asset_card.limited")}</p>
           </div>
         </div>
 
         {/* CTA Button */}
         <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-glow-gold">
-          Buy Tokens
+          {t("common.buy_tokens")}
         </Button>
       </div>
     </div>

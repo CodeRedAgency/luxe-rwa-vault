@@ -1,30 +1,32 @@
 import { DollarSign, Package, Users, MapPin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const TrustMetrics = () => {
+  const { t } = useTranslation();
   const metrics = [
     {
       icon: DollarSign,
-      label: "Total Value Tokenized",
+      label: t("trust_metrics.total_value"),
       value: "$847M",
       change: "+12.5%",
     },
     {
       icon: Package,
-      label: "Assets Listed",
+      label: t("trust_metrics.assets_listed"),
       value: "2,847",
       change: "+243",
     },
     {
       icon: Users,
-      label: "Verified Investors",
+      label: t("trust_metrics.verified_investors"),
       value: "18,429",
       change: "+1,204",
     },
     {
       icon: MapPin,
-      label: "Global Reach",
-      value: "47 Countries",
-      change: "🇯🇵 Japan HQ",
+      label: t("trust_metrics.global_reach"),
+      value: t("trust_metrics.reach_value"),
+      change: t("trust_metrics.hq_label"),
     },
   ];
 

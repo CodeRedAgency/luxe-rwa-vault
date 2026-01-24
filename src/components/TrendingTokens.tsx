@@ -1,20 +1,22 @@
 import { TrendingUp, TrendingDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const TrendingTokens = () => {
+  const { t } = useTranslation();
   const tokens = [
-    { name: "Macallan 25yr", symbol: "MAC25", price: 3250, change: 12.4, isPositive: true },
-    { name: "Château Lafite", symbol: "LAFT", price: 1890, change: 8.7, isPositive: true },
-    { name: "Cuban Cohiba", symbol: "COHI", price: 450, change: -2.3, isPositive: false },
-    { name: "Pappy Van Winkle", symbol: "PAPPY", price: 2100, change: 15.2, isPositive: true },
-    { name: "Dom Pérignon", symbol: "DOMP", price: 890, change: 5.6, isPositive: true },
-    { name: "Japanese Yamazaki", symbol: "YAMA", price: 1650, change: 9.1, isPositive: true },
+    { name: t("products.macallan_25"), symbol: "MAC25", price: 3250, change: 12.4, isPositive: true },
+    { name: t("products.chateau_lafite"), symbol: "LAFT", price: 1890, change: 8.7, isPositive: true },
+    { name: t("products.cuban_cohiba"), symbol: "COHI", price: 450, change: -2.3, isPositive: false },
+    { name: t("products.pappy_van_winkle"), symbol: "PAPPY", price: 2100, change: 15.2, isPositive: true },
+    { name: t("products.dom_perignon"), symbol: "DOMP", price: 890, change: 5.6, isPositive: true },
+    { name: t("products.japanese_yamazaki"), symbol: "YAMA", price: 1650, change: 9.1, isPositive: true },
   ];
 
   return (
     <section className="py-8 bg-card border-b border-border">
       <div className="container mx-auto px-4">
         <h3 className="text-sm font-semibold text-muted-foreground mb-4 uppercase tracking-wider">
-          Trending Tokens
+          {t("trending_tokens.title")}
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           {tokens.map((token) => (
@@ -36,9 +38,8 @@ const TrendingTokens = () => {
               <div className="space-y-1">
                 <p className="text-lg font-bold text-primary">${token.price}</p>
                 <p
-                  className={`text-xs font-semibold ${
-                    token.isPositive ? "text-chart-green" : "text-chart-red"
-                  }`}
+                  className={`text-xs font-semibold ${token.isPositive ? "text-chart-green" : "text-chart-red"
+                    }`}
                 >
                   {token.isPositive ? "+" : ""}{token.change}%
                 </p>
