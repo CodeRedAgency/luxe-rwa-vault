@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Whitepaper = () => {
     const navigate = useNavigate();
@@ -10,14 +11,17 @@ const Whitepaper = () => {
     return (
         <div className="min-h-screen bg-background pt-24 pb-12">
             <div className="container mx-auto px-4 max-w-4xl">
-                <Button
-                    variant="ghost"
-                    onClick={() => navigate("/")}
-                    className="mb-8 hover:bg-primary/10 hover:text-primary"
-                >
-                    <ArrowLeft className="mr-2 h-4 w-4" />
-                    {t("whitepaper.back_home")}
-                </Button>
+                <div className="flex items-center justify-between mb-8">
+                    <Button
+                        variant="ghost"
+                        onClick={() => navigate("/")}
+                        className="hover:bg-primary/10 hover:text-primary"
+                    >
+                        <ArrowLeft className="mr-2 h-4 w-4" />
+                        {t("whitepaper.back_home")}
+                    </Button>
+                    <LanguageSwitcher />
+                </div>
 
                 <div className="space-y-12 animate-fade-in">
                     {/* Header */}
